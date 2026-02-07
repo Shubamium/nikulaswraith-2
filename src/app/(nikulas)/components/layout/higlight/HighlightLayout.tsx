@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { FaExternalLinkSquareAlt } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 type Props = {
   heading: {

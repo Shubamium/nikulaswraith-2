@@ -7,7 +7,17 @@ import { GiProcessor, GiRam } from "react-icons/gi";
 import { PiGraphicsCardFill } from "react-icons/pi";
 import { BsMotherboard, BsMotherboardFill, BsPower } from "react-icons/bs";
 import { LuMemoryStick } from "react-icons/lu";
-export default function page({}: Props) {
+import { getPayload } from "payload";
+import payloadConfig from "@/payload.config";
+export default async function page({}: Props) {
+  const p = await getPayload({
+    config: await payloadConfig,
+  });
+
+  const hd = await p.findGlobal({
+    slug: "Hardware",
+  });
+
   return (
     <WindowLayout
       id="p_hardware"
@@ -28,28 +38,28 @@ export default function page({}: Props) {
             <GiProcessor />
           </div>
           <h3>PROCESSOR</h3>
-          <p>Intel Core i9 13900 24 Cores 5.20 GHz</p>
+          <p>{hd.processor}</p>
         </div>
         <div className="sys-card">
           <div className="icon">
             <PiGraphicsCardFill />
           </div>
           <h3>GRAPHICS</h3>
-          <p>Intel Core i9 13900 24 Cores 5.20 GHz</p>
+          <p>{hd.graphics}</p>
         </div>
         <div className="sys-card">
           <div className="icon">
             <LuMemoryStick />
           </div>
           <h3>RAM</h3>
-          <p>Intel Core i9 13900 24 Cores 5.20 GHz</p>
+          <p>{hd.ram}</p>
         </div>
         <div className="sys-card">
           <div className="icon">
             <BsPower />
           </div>
           <h3>PSU</h3>
-          <p>Intel Core i9 13900 24 Cores 5.20 GHz</p>
+          <p>{hd.psu}</p>
         </div>
 
         <div className="sys-card">
@@ -57,7 +67,7 @@ export default function page({}: Props) {
             <BsMotherboardFill />
           </div>
           <h3>Motherboard</h3>
-          <p>Intel Core i9 13900 24 Cores 5.20 GHz</p>
+          <p>{hd.motherboard}</p>
         </div>
       </div>
 

@@ -93,9 +93,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     profile: Profile;
+    Hardware: Hardware;
   };
   globalsSelect: {
     profile: ProfileSelect<false> | ProfileSelect<true>;
+    Hardware: HardwareSelect<false> | HardwareSelect<true>;
   };
   locale: null;
   user: User;
@@ -449,11 +451,39 @@ export interface Profile {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hardware".
+ */
+export interface Hardware {
+  id: string;
+  processor?: string | null;
+  graphics?: string | null;
+  ram?: string | null;
+  psu?: string | null;
+  motherboard?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profile_select".
  */
 export interface ProfileSelect<T extends boolean = true> {
   bio?: T;
   trailer?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hardware_select".
+ */
+export interface HardwareSelect<T extends boolean = true> {
+  processor?: T;
+  graphics?: T;
+  ram?: T;
+  psu?: T;
+  motherboard?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -11,6 +11,7 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import { Profile } from "./collections/globals/Profile";
 import { Highlights } from "./collections/Highlights";
 import { Artwork } from "./collections/Models";
+import { Hardware } from "./collections/globals/Hardware";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -23,7 +24,7 @@ export default buildConfig({
     },
   },
   collections: [Highlights, Artwork, Users, Media],
-  globals: [Profile],
+  globals: [Profile, Hardware],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

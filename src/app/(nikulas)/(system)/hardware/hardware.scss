@@ -30,9 +30,19 @@
       background-blend-mode: overlay;
       border: 2px solid var(--lblue);
 
+      flex-grow: 0;
+      flex-basis: 300px;
       border-radius: 0.55em;
       padding: 2em;
       min-width: 0%;
+      transition: all 400ms ease;
+      &:hover {
+        scale: 1.1;
+        rotate: -2deg;
+        z-index: 1;
+        outline: 3px solid var(--lime);
+        box-shadow: 0px 0px 14px 4px black;
+      }
       .icon {
         border-radius: 50%;
         border: 1px solid var(--lblue);
