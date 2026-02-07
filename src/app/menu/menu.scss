@@ -1,0 +1,59 @@
+#p_menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-bottom: 10vh;
+  position: relative;
+
+  .panel {
+    background: #d9d9d90f;
+    padding: 2em 3em;
+    border-radius: 1em;
+    // backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 10px 2px #d9d9d91f inset;
+    .mtgrad {
+      font-size: 6rem;
+      margin: 0 auto;
+      text-align: center;
+      margin-bottom: 0.25em;
+    }
+
+    .apps-li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.1em;
+      text-align: center;
+      .btn-app {
+        height: 240px;
+        width: 210px;
+        background: #0000003a;
+        display: flex;
+        align-items: center;
+        border-radius: 1em;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
+        &:hover {
+          border: 3px solid var(--lime);
+          background: #0000009f;
+          box-shadow: 0px 0px 2px 5px #35d68e48;
+        }
+        svg {
+          width: 120px;
+          height: 120px;
+          color: var(--lime);
+        }
+
+        p {
+          color: white;
+          line-height: 1;
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          font-family: var(--fontH);
+        }
+      }
+    }
+  }
+}

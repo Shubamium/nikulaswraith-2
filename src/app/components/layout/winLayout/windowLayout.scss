@@ -1,0 +1,70 @@
+.win-layout {
+  padding: 3em;
+  position: relative;
+  z-index: 10;
+
+  .window {
+    border: 2px solid white;
+
+    background: linear-gradient(to bottom, #070606, #1d223b);
+    display: flex;
+    flex-direction: column;
+    .heading {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      .left {
+        gap: 1em;
+        padding: 0.1em 0.5em;
+        display: flex;
+        align-items: center;
+
+        h2 {
+          color: var(--lblue);
+        }
+        hr {
+          min-width: 50px;
+          height: 2px;
+          background: black;
+        }
+      }
+
+      .right {
+        display: flex;
+        gap: 0.5em;
+        transform-origin: right top;
+        scale: 1.4;
+        margin-top: 0.5em;
+        margin-right: 0.5em;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 60%);
+        .btn-heading {
+          background: linear-gradient(to bottom, #00ffdd, var(--lblue));
+          padding: 0.1em 0.4em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .wordmark {
+          font-size: 1.5rem;
+          line-height: 1;
+          // font-weight: bold;
+          font-family: var(--fontH);
+          padding: 0.1em 1em;
+          padding-left: 2em;
+        }
+      }
+    }
+    .content {
+      color: white;
+      padding: 1em;
+      flex-grow: 1;
+      height: 80vh;
+      overflow-x: clip;
+      overflow-y: auto;
+    }
+  }
+}

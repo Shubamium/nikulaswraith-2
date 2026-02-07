@@ -1,0 +1,289 @@
+#header {
+  position: fixed;
+  color: white;
+
+  bottom: 0%;
+  width: 100%;
+  z-index: 100;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    height: 68%;
+    background: #141721;
+    z-index: -1;
+    box-shadow: 0px -20px 20px #294e7564;
+  }
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  .decal {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 20%;
+    user-select: none;
+    pointer-events: none;
+  }
+  .left {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 1em;
+    .taskbar-apps {
+      display: flex;
+      align-items: center;
+      padding-bottom: 2%;
+      gap: 0.8em;
+
+      .btn-nav {
+        padding: 0.8em;
+        border-radius: 0.5em;
+
+        background: linear-gradient(#121c32, #070d19);
+        color: var(--lime);
+        border-bottom: 4px solid var(--lime);
+
+        &.active,
+        &:hover {
+          scale: 1.1;
+          color: #141721;
+          background: linear-gradient(to bottom, var(--lime), var(--lblue));
+          height: 110%;
+          transform-origin: bottom;
+          box-shadow: 0px 0px 10px var(--cyan);
+          border-bottom: 4px solid var(--lblue);
+          transform: translateY(-5%);
+        }
+        &.sd {
+          svg {
+            scale: 1;
+          }
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+          transition: all 500ms ease;
+          width: 50px;
+          height: 50px;
+          scale: 1.3;
+        }
+      }
+    }
+    .logo {
+      position: relative;
+      transform-origin: bottom left;
+      height: 110px;
+      width: 170px;
+      img {
+        width: 170px;
+        height: 170px;
+        padding: 0.4em;
+        object-fit: contain;
+
+        position: absolute;
+        bottom: 0%;
+      }
+
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--cyan), var(--lblue));
+        z-index: -10;
+        clip-path: polygon(85% 0, 100% 31%, 100% 100%, 0 100%, 0 0);
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 1em;
+    height: 60%;
+    z-index: 1;
+    padding: 8px;
+    padding-top: 0px;
+    padding-inline: 0.5em;
+    position: relative;
+
+    .btn-class {
+      position: absolute;
+      bottom: 130%;
+      right: 10px;
+      background: #121c32;
+      font-size: 1.4rem;
+      padding: 0.2em 1em;
+      font-weight: bold;
+      border: 3px solid var(--lime);
+      font-family: var(--fontH);
+      align-items: center;
+      box-shadow: 0px 0px 4px black;
+    }
+    .time {
+      display: flex;
+      align-items: center;
+      gap: 0em;
+      height: 100%;
+      filter: drop-shadow(0px 0px 4px var(--lblue));
+      .side {
+        width: 50px;
+        transform: translateX(5px);
+        height: 100%;
+        background: var(--lblue);
+        clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+      }
+      .time-part {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%);
+        height: 100%;
+        font-size: 3rem;
+        padding: 0 0.5em;
+        line-height: 0.8;
+        color: var(--g);
+        font-family: var(--fontH);
+        background: linear-gradient(to left, var(--lime), var(--lblue));
+        padding-left: 1em;
+
+        display: flex;
+        align-items: center;
+      }
+    }
+    .btn-navside {
+      background: var(--lime);
+      color: var(--dg);
+      width: 80px;
+      height: 100%;
+      border-radius: 0.2em;
+      box-shadow: 0px 0px 15px var(--lime);
+      svg {
+        width: 100%;
+        height: 100%;
+        padding: 0.45em;
+      }
+    }
+  }
+
+  .decor_pane {
+    height: 300px;
+    position: fixed;
+    bottom: -150px;
+    z-index: -10;
+    right: -50px;
+    user-select: none;
+    pointer-events: none;
+    animation:
+      speen 12s infinite linear,
+      opacityblink 6s 0s ease alternate forwards infinite;
+
+    @keyframes opacityblink {
+      from {
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    &.a {
+      animation-delay: 4s;
+      rotate: -20deg;
+      opacity: 0;
+    }
+    &.b {
+      animation-delay: 8s;
+      rotate: -60deg;
+      opacity: 0;
+    }
+    &.c {
+      animation-delay: 16s;
+      opacity: 0;
+      rotate: -90deg;
+    }
+  }
+}
+
+.audio-panel {
+  position: fixed;
+  right: 20px;
+  top: 20%;
+  width: 50vh;
+  display: flex;
+  // align-items: center;
+  align-items: stretch;
+  background: #121c32;
+  border: 3px solid var(--lime);
+  z-index: 100;
+  accent-color: var(--cyan);
+  justify-content: space-between;
+  gap: 1em;
+  transform: rotate(270deg);
+  transform-origin: bottom right;
+  .icon-top {
+    width: 80px;
+    // height: 50px;
+    padding: 0.5em;
+    background: var(--lime);
+    svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(90deg);
+    }
+  }
+  box-shadow: 0px 0px 8px black;
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  &.open {
+    translate: 0px 0;
+    opacity: 1;
+  }
+  &.close {
+    translate: 120px 0;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .vertical-audio {
+    width: 100%;
+
+    flex-grow: 1;
+    background: white;
+    &::-webkit-slider-thumb {
+      border-radius: 0%;
+      height: 100%;
+      scale: 1.3 1;
+    }
+  }
+  .btn-mute {
+    // rotate: 90deg;
+    height: 100%;
+    font-size: 1rem;
+    padding: 1.5em 0em;
+    font-weight: bold;
+    background: rgb(18, 18, 24);
+    border: 3px solid var(--lime);
+    color: var(--lime);
+    font-family: var(--fontH);
+    &:hover,
+    &.mute {
+      color: var(--dg);
+      background: var(--lime);
+    }
+    p {
+      rotate: 90deg;
+    }
+  }
+}

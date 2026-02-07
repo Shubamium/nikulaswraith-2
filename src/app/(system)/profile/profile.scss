@@ -1,0 +1,140 @@
+#p_profile {
+  .window {
+    height: 84vh;
+  }
+  .content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 10%;
+    height: 100%;
+    padding: 4em 100px;
+    padding-bottom: 0;
+
+    .left {
+      .bio {
+        .mtgrad {
+          font-size: 4rem;
+        }
+        p {
+          min-height: 120px;
+        }
+      }
+
+      .support-trailer {
+        display: grid;
+        grid-template-columns: 1.4fr 2fr;
+        gap: 3em;
+        align-items: center;
+        .support {
+          max-width: 100%;
+          background:
+            url("/b/dotdark.png"),
+            linear-gradient(to bottom, var(--lblue), var(--lime));
+          background-size: 20px;
+          padding: 1.2em;
+
+          border-radius: 1em;
+          margin-top: 50px;
+          .logo {
+            max-width: 100%;
+            margin-top: -80px;
+          }
+
+          .slist {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            h2 {
+              text-align: center;
+              color: var(--g);
+            }
+          }
+          .btns {
+            display: flex;
+            gap: 1em;
+            justify-content: center;
+          }
+        }
+
+        .trailer {
+          display: flex;
+          flex-direction: column;
+          gap: 1.4em;
+          .vd {
+            width: 98%;
+            aspect-ratio: 16/9;
+            border: 2px solid var(--lime);
+            box-shadow: 0px 10px 10px #5dffd121;
+            border-radius: 1em;
+          }
+          .socials {
+            display: flex;
+            // width: 100%;
+            gap: 0.5em;
+            // align-items: center;
+            .btn-ct {
+              background: linear-gradient(to bottom, #121c32, #070d19);
+              padding: 0.65em;
+              border-bottom: 5px solid var(--lime);
+              border-radius: 0.25em;
+              &:hover {
+                box-shadow: 0px 10px 7px #5dffd12c;
+              }
+              svg {
+                width: 40px;
+                height: 40px;
+                color: var(--lime);
+              }
+            }
+            .social-head {
+              border: 2px solid var(--lime);
+              background: #08101e;
+              padding: 0.55em;
+              flex-grow: 1;
+              border-radius: 0.5em;
+
+              p {
+                line-height: 1;
+                font-weight: bold;
+                word-break: break-all;
+                font-family: var(--fontH);
+                font-size: 0.95em;
+                position: absolute;
+                top: 4%;
+                left: 4%;
+              }
+              position: relative;
+              .tri {
+                display: flex;
+                justify-content: flex-end;
+                position: absolute;
+                bottom: 4%;
+                right: 4%;
+                svg {
+                  margin: 0 -1px;
+                  scale: 2 1.2;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .mainart {
+        width: 100%;
+        flex-shrink: 1;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+}
