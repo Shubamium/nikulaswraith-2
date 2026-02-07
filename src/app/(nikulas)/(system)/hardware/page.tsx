@@ -1,4 +1,4 @@
-import WindowLayout from "@/app/components/layout/winLayout/WindowLayout";
+import WindowLayout from "@/app/(nikulas)/components/layout/winLayout/WindowLayout";
 import React from "react";
 
 type Props = {};

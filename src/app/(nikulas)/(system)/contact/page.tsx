@@ -2,8 +2,9 @@ import React from "react";
 
 type Props = {};
 import "./contact.scss";
-import WindowLayout from "@/app/components/layout/winLayout/WindowLayout";
-import { FaYoutube } from "react-icons/fa6";
+import WindowLayout from "@/app/(nikulas)/components/layout/winLayout/WindowLayout";
+import { FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaDiscord, FaTwitch } from "react-icons/fa";
 export default function page({}: Props) {
   return (
     <WindowLayout
@@ -48,16 +49,32 @@ export default function page({}: Props) {
         </div>
         <div className="action">
           <div className="socials">
-            <a href="#" target="_blank" className="btn btn-ct">
-              <FaYoutube />
+            <a
+              href="https://discord.com/invite/xPBEdgF5Zp"
+              target="_blank"
+              className="btn btn-ct"
+            >
+              <FaDiscord />
             </a>
-            <a href="#" target="_blank" className="btn btn-ct">
-              <FaYoutube />
+            <a
+              href="https://x.com/NikulasWraith"
+              target="_blank"
+              className="btn btn-ct"
+            >
+              <FaXTwitter />
             </a>
-            <a href="#" target="_blank" className="btn btn-ct">
-              <FaYoutube />
+            <a
+              href="https://www.twitch.tv/nikulaswraith"
+              target="_blank"
+              className="btn btn-ct"
+            >
+              <FaTwitch />
             </a>
-            <a href="#" target="_blank" className="btn btn-ct">
+            <a
+              href="https://www.youtube.com/@nikulaswraith"
+              target="_blank"
+              className="btn btn-ct"
+            >
               <FaYoutube />
             </a>
           </div>

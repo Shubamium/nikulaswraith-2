@@ -1,11 +1,29 @@
-import WindowLayout from "@/app/components/layout/winLayout/WindowLayout";
+import WindowLayout from "@/app/(nikulas)/components/layout/winLayout/WindowLayout";
 import React from "react";
 
 type Props = {};
 import "./profile.scss";
 import { FaXTwitter } from "react-icons/fa6";
 import { GoTriangleLeft } from "react-icons/go";
-export default function page({}: Props) {
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { getPayload } from "payload";
+import payloadConfig from "@/payload.config";
+import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import {
+  FaDiscord,
+  FaTwitch,
+  FaYoutube,
+  FaYoutubeSquare,
+} from "react-icons/fa";
+export default async function page({}: Props) {
+  const p = await getPayload({
+    config: await payloadConfig,
+  });
+
+  const pd = await p.findGlobal({
+    slug: "profile",
+  });
+
   return (
     <WindowLayout
       id="p_profile"
@@ -18,13 +36,9 @@ export default function page({}: Props) {
       <div className="left">
         <div className="bio">
           <h2 className="mtgrad">PROFILE {">>"}</h2>
-          <p>
-            Hello, I’m Nikulas Wraith. I’m a variety streamer and a Virtual
-            Phantom VTuber. My soul was lost many long years ago and then
-            mistakenly uploaded to a gaming computer. I live the rest of my life
-            inside of here along with a few others you might meet like, Nikki,
-            Kid Nik, and even Corrupt Nik.
-          </p>
+          <div className="biotext">
+            <RichText data={pd.bio as SerializedEditorState}></RichText>
+          </div>
 
           <div className="support-trailer">
             <div className="support">
@@ -37,10 +51,17 @@ export default function page({}: Props) {
                 </h2>
 
                 <div className="btns">
-                  <a href="#" className="btn btn-sup">
+                  <a
+                    href="https://ko-fi.com/nikulaswraith"
+                    target="_blank"
+                    className="btn btn-sup"
+                  >
                     <img src="/p/kofi-btn.png" alt="" />
                   </a>
-                  <a href="#" className="btn btn-sup">
+                  <a
+                    href="https://throne.com/nikulaswraith"
+                    className="btn btn-sup"
+                  >
                     <img src="/p/thronebtn.png" alt="" />
                   </a>
                 </div>
@@ -48,7 +69,7 @@ export default function page({}: Props) {
             </div>
             <div className="trailer">
               <iframe
-                src="https://www.youtube.com/embed/aqaVSD_g4p4"
+                src={`https://www.youtube.com/embed/${pd.trailer}`}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -57,20 +78,40 @@ export default function page({}: Props) {
               ></iframe>
 
               <div className="socials">
-                <a href="#" target="_blank" className="btn btn-ct">
+                <a
+                  href="https://discord.com/invite/xPBEdgF5Zp"
+                  target="_blank"
+                  className="btn btn-ct"
+                >
+                  <FaDiscord />
+                </a>
+                <a
+                  href="https://x.com/NikulasWraith"
+                  target="_blank"
+                  className="btn btn-ct"
+                >
                   <FaXTwitter />
                 </a>
-                <a href="#" target="_blank" className="btn btn-ct">
-                  <FaXTwitter />
+                <a
+                  href="https://www.twitch.tv/nikulaswraith"
+                  target="_blank"
+                  className="btn btn-ct"
+                >
+                  <FaTwitch />
                 </a>
-                <a href="#" target="_blank" className="btn btn-ct">
-                  <FaXTwitter />
+                <a
+                  href="https://www.youtube.com/@nikulaswraith"
+                  target="_blank"
+                  className="btn btn-ct"
+                >
+                  <FaYoutube />
                 </a>
-                <a href="#" target="_blank" className="btn btn-ct">
-                  <FaXTwitter />
-                </a>
-                <a href="#" target="_blank" className="btn btn-ct">
-                  <FaXTwitter />
+                <a
+                  href="https://www.youtube.com/@nikulaswraithextra"
+                  target="_blank"
+                  className="btn btn-ct"
+                >
+                  <FaYoutubeSquare />
                 </a>
                 <div className="social-head">
                   <p>
