@@ -41,6 +41,12 @@ export default function Header({}: Props) {
       audioRef.current.volume = vol;
       audioRef.current.play();
     }
+
+    document.addEventListener("click", () => {
+      if (audioRef.current?.paused) {
+        audioRef.current.play();
+      }
+    });
     return () => {
       clearInterval(exit);
     };
