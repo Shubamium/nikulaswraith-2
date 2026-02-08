@@ -12,6 +12,8 @@ import { Profile } from "./collections/globals/Profile";
 import { Highlights } from "./collections/Highlights";
 import { Artwork } from "./collections/Models";
 import { Hardware } from "./collections/globals/Hardware";
+import { Nodes } from "./collections/Nodes";
+import { SystemStorage } from "./collections/globals/SystemStorage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -23,8 +25,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Highlights, Artwork, Users, Media],
-  globals: [Profile, Hardware],
+  collections: [Highlights, Artwork, Users, Media, Nodes],
+  globals: [Profile, Hardware, SystemStorage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

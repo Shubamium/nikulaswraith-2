@@ -24,7 +24,7 @@ export default function HighlightLayout({ heading, data }: Props) {
   const router = useRouter();
   if (!data || data.length == 0) {
     router.push("/");
-    return;
+    return <></>;
   }
 
   const [p, setP] = useState(0);

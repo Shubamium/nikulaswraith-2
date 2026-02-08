@@ -71,6 +71,7 @@ export interface Config {
     Artwork: Artwork;
     users: User;
     media: Media;
+    nodes: Node;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     Artwork: ArtworkSelect<false> | ArtworkSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    nodes: NodesSelect<false> | NodesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -94,10 +96,12 @@ export interface Config {
   globals: {
     profile: Profile;
     Hardware: Hardware;
+    SystemStorage: SystemStorage;
   };
   globalsSelect: {
     profile: ProfileSelect<false> | ProfileSelect<true>;
     Hardware: HardwareSelect<false> | HardwareSelect<true>;
+    SystemStorage: SystemStorageSelect<false> | SystemStorageSelect<true>;
   };
   locale: null;
   user: User;
@@ -173,6 +177,16 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -232,6 +246,23 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "nodes".
+ */
+export interface Node {
+  id: string;
+  name?: string | null;
+  type?: ('folder' | 'image' | 'video') | null;
+  vid?: string | null;
+  children?: (string | Node)[] | null;
+  /**
+   * On 'Folder' and 'Video' type this will be used as cover image
+   */
+  media?: (string | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -269,6 +300,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'nodes';
+        value: string | Node;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -383,6 +418,33 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "nodes_select".
+ */
+export interface NodesSelect<T extends boolean = true> {
+  name?: T;
+  type?: T;
+  vid?: T;
+  children?: T;
+  media?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -465,6 +527,21 @@ export interface Hardware {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SystemStorage".
+ */
+export interface SystemStorage {
+  id: string;
+  size: string;
+  /**
+   * The fill percentage of the storage 0-100%
+   */
+  fillPercentage: number;
+  files: (string | Node)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profile_select".
  */
 export interface ProfileSelect<T extends boolean = true> {
@@ -484,6 +561,18 @@ export interface HardwareSelect<T extends boolean = true> {
   ram?: T;
   psu?: T;
   motherboard?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SystemStorage_select".
+ */
+export interface SystemStorageSelect<T extends boolean = true> {
+  size?: T;
+  fillPercentage?: T;
+  files?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

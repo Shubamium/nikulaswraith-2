@@ -20,5 +20,14 @@ export const Media: CollectionConfig = {
         quality: 80,
       },
     },
+    imageSizes: [
+      {
+        name: "thumbnail",
+        width: 700,
+        height: 700,
+        fit: "inside",
+        withoutEnlargement: true,
+      },
+    ],
   },
 };
