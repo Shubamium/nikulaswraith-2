@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import "./windowLayout.scss";
 import Link from "next/link";
 import { ImCross } from "react-icons/im";
 import { GrMenu } from "react-icons/gr";
+import { useRouter } from "next/navigation";
 
 type Props = {
   id: string;
@@ -20,8 +22,10 @@ export default function WindowLayout({
   children,
   heading,
 }: Props) {
+  const router = useRouter();
+  const [closing, setClosing] = React.useState(false);
   return (
-    <main className="win-layout" id={id}>
+    <main className={`win-layout ${closing && "closing"}`} id={id}>
       <div className="window">
         <div className="heading">
           <div className="left">
@@ -33,12 +37,22 @@ export default function WindowLayout({
             <div className="btn-heading wordmark">
               <p>NIKULAS WRAITH</p>
             </div>
-            <Link href={"#"} className="btn btn-heading">
+            <Link href={"/menu"} className="btn btn-heading">
               <GrMenu />
             </Link>
-            <Link href={closeRoute} className="btn btn-heading">
+            <button
+              onClick={() => {
+                if (closeRoute) {
+                  setClosing(true);
+                  setTimeout(() => {
+                    router.push(closeRoute);
+                  }, 500);
+                }
+              }}
+              className="btn btn-heading"
+            >
               <ImCross />
-            </Link>
+            </button>
           </div>
         </div>
         <div className="content">{children}</div>

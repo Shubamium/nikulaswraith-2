@@ -3,6 +3,7 @@ import { Athiti, Audiowide } from "next/font/google";
 import "./globals.scss";
 import { CSSProperties } from "react";
 import Header from "./components/header/Header";
+import CursorEffect from "./components/cursor/CursorEffect";
 
 const athiti = Athiti({
   variable: "--fontP",
@@ -39,6 +40,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <CursorEffect />
       </body>
     </html>
   );

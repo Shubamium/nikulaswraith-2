@@ -58,7 +58,7 @@ export default function Explorer({
             className={`btn drive ${drive === "c" ? "act" : ""}`}
           >
             <div className="top">
-              <h2 className="dn">(C:) System Storage</h2>
+              <h2 className="dn">(C:) System Storage </h2>
               <svg
                 width="56"
                 height="56"
@@ -84,17 +84,17 @@ export default function Explorer({
                 />
               </svg>
             </div>
-            <p>22.3TB free of 109.0 TB</p>
+            <p>{system.size} </p>
           </Link>
           <Link
             href={"/explorer?drive=d"}
             className={`btn drive ${drive === "d" ? "act" : ""}`}
           >
             <div className="top">
-              <h2 className="dn">{`(D:) Media Archive`}</h2>
+              <h2 className="dn">{`(D:) Media Archive`} </h2>
               <FaImages />
             </div>
-            <p>22.3TB free of 109.0 TB</p>
+            <p>{media.size}</p>
           </Link>
         </div>
 
@@ -110,7 +110,7 @@ export default function Explorer({
                 }}
               ></div>
             </div>
-            <p>{root.size}</p>
+            <p>{root.size} - NWTFS Storage</p>
           </div>
 
           <div className="file-list">
