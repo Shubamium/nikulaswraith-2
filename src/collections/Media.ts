@@ -11,6 +11,10 @@ export const Media: CollectionConfig = {
       type: "text",
       required: true,
     },
+    {
+      name: "author",
+      type: "text",
+    },
   ],
 
   upload: {

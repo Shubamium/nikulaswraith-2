@@ -97,11 +97,13 @@ export interface Config {
     profile: Profile;
     Hardware: Hardware;
     SystemStorage: SystemStorage;
+    MediaArchive: MediaArchive;
   };
   globalsSelect: {
     profile: ProfileSelect<false> | ProfileSelect<true>;
     Hardware: HardwareSelect<false> | HardwareSelect<true>;
     SystemStorage: SystemStorageSelect<false> | SystemStorageSelect<true>;
+    MediaArchive: MediaArchiveSelect<false> | MediaArchiveSelect<true>;
   };
   locale: null;
   user: User;
@@ -166,6 +168,7 @@ export interface Highlight {
 export interface Media {
   id: string;
   alt: string;
+  author?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -407,6 +410,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  author?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -542,6 +546,21 @@ export interface SystemStorage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaArchive".
+ */
+export interface MediaArchive {
+  id: string;
+  size: string;
+  /**
+   * The fill percentage of the storage 0-100%
+   */
+  fillPercentage: number;
+  files: (string | Node)[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profile_select".
  */
 export interface ProfileSelect<T extends boolean = true> {
@@ -570,6 +589,18 @@ export interface HardwareSelect<T extends boolean = true> {
  * via the `definition` "SystemStorage_select".
  */
 export interface SystemStorageSelect<T extends boolean = true> {
+  size?: T;
+  fillPercentage?: T;
+  files?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaArchive_select".
+ */
+export interface MediaArchiveSelect<T extends boolean = true> {
   size?: T;
   fillPercentage?: T;
   files?: T;
