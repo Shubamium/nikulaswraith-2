@@ -1,0 +1,82 @@
+#p_home {
+  .decor-tl {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    .edgething {
+      width: 300px;
+      height: 40px;
+
+      border-left: 1px solid white;
+      border-top: 1px solid white;
+    }
+    gap: 0.65em;
+    .blocks-a {
+      display: flex;
+      gap: 0.5em;
+      .a,
+      .b,
+      .c {
+        height: 30px;
+        background: white;
+        width: 20px;
+      }
+
+      .c {
+        animation: bac 0.5s infinite alternate ease-in-out;
+        @keyframes bac {
+          from {
+            transform: translateX(0px);
+          }
+          to {
+            transform: translateX(50px);
+          }
+        }
+      }
+    }
+    .stats-block {
+      display: flex;
+      flex-direction: column;
+      margin: 1em 0;
+      gap: 0.2em;
+      .a,
+      .b,
+      .c {
+        height: 12px;
+        background: white;
+        width: 200px;
+        animation: statScale 1.4s infinite alternate
+          cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        transform-origin: left;
+        @keyframes statScale {
+          from {
+            scale: 0.1 1;
+          }
+          to {
+            scale: 0.6 1;
+          }
+        }
+
+        &.b {
+          animation-delay: 400ms;
+        }
+        &.c {
+          animation-delay: 800ms;
+        }
+      }
+    }
+    .logs {
+      color: white;
+      opacity: 0.2;
+    }
+  }
+  .decor-tr {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    user-select: none;
+    pointer-events: none;
+  }
+}

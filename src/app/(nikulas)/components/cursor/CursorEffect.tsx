@@ -55,9 +55,5 @@ export default function CursorEffect({}: Props) {
       spawnCubeParticle();
     };
   });
-  return (
-    <div className="fx-head" ref={fxHeadRef}>
-      CursorEffect
-    </div>
-  );
+  return <div className="fx-head" ref={fxHeadRef}></div>;
 }

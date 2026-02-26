@@ -1,0 +1,107 @@
+#p_clock {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 2em;
+  padding: 2em;
+  min-height: 90vh;
+  .l {
+    // background: red;
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1.5fr 2fr;
+    gap: 2em;
+    .top {
+      // background: black;
+      display: grid;
+      grid-template-columns: 2fr 2fr 1fr;
+      gap: 1em;
+      .world-clock {
+        .info {
+          background: #d9d9d91f;
+          height: 100%;
+          padding: 1em;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 1em;
+          h2 {
+            color: var(--lblue);
+            font-size: 3rem;
+            line-height: 1;
+          }
+          p {
+            text-align: right;
+            color: white;
+          }
+        }
+      }
+      .map-container {
+        width: 100%;
+        height: 100%;
+        background: black;
+        border-radius: 1em;
+        border: 3px solid var(--lblue);
+      }
+    }
+    .bottom {
+      background: black;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      .live-part {
+        .streampart {
+          max-height: 100%;
+          .twitch-embed-container {
+            height: 100%;
+            aspect-ratio: 16/9;
+            border: 2px solid var(--cyan);
+          }
+        }
+      }
+    }
+  }
+  .r {
+    background: grey;
+    height: 100%;
+    width: 100%;
+  }
+
+  .cpanel {
+    background: #d9d9d91f;
+    border-radius: 1em;
+    .head {
+      color: white;
+      text-transform: uppercase;
+      h2 {
+        background: #17171789;
+        text-align: center;
+        padding: 0.55em;
+      }
+    }
+    .credits {
+      padding: 0.55em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2em;
+      max-height: 100%;
+      overflow-y: auto;
+    }
+    .list {
+      text-align: center;
+      padding: 0.5em;
+      h3 {
+        font-size: 1rem;
+        color: white;
+        line-height: 0.98;
+        font-weight: 300;
+      }
+      p {
+        font-weight: bold;
+        font-family: var(--fontH);
+        font-size: 1.2rem;
+        color: var(--lblue);
+        font-weight: 300;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

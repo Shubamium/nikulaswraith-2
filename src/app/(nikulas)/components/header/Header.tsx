@@ -13,7 +13,7 @@ import dayjs from "dayjs";
 import { clearInterval } from "timers";
 // Windows Navigation  Bar Fixed
 export default function Header({}: Props) {
-  const [currentTime, setCurrentTime] = useState(dayjs());
+  const [currentTime, setCurrentTime] = useState();
 
   const [settingBarOpen, setSettingBarOpen] = useState(false);
 
@@ -21,6 +21,10 @@ export default function Header({}: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [vol, setVol] = useState(0.3);
   const [muted, setMuted] = useState(false);
+  useEffect(() => {
+    if (!window || !document) return;
+    setCurrentTime(dayjs());
+  }, []);
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = vol;
@@ -39,12 +43,12 @@ export default function Header({}: Props) {
 
     if (audioRef.current) {
       audioRef.current.volume = vol;
-      audioRef.current.play();
+      audioRef.current?.play();
     }
 
     document.addEventListener("click", () => {
       if (audioRef.current?.paused) {
-        audioRef.current.play();
+        audioRef.current?.play();
       }
     });
     return () => {
@@ -89,10 +93,10 @@ export default function Header({}: Props) {
             <Link href={"/profile"} className="btn btn-nav">
               <IoMdPerson />
             </Link>
-            <Link href={"/explorer"} className="btn btn-nav">
+            <Link href={"/explorer?drive=c"} className="btn btn-nav">
               <MdFolder />
             </Link>
-            <Link href={"/explorer?drive=gallery"} className="btn btn-nav">
+            <Link href={"/explorer?drive=d"} className="btn btn-nav">
               <AiFillPicture />
             </Link>
           </div>
@@ -106,7 +110,7 @@ export default function Header({}: Props) {
           <div className="time btn">
             <div className="side"></div>
             <div className="time-part">
-              <p>{currentTime.format("hh:mm A")}</p>
+              <p>{currentTime?.format("hh:mm A")}</p>
             </div>
           </div>
           <Link href={"/clock"} className="btn btn-navside">
