@@ -30,23 +30,23 @@ export default function Menu({}: Props) {
         <div className="apps-li">
           <Link href={"/profile"} className="btn btn-app">
             <BsPersonFill />
-            <p>Profile</p>
+            <span>Profile</span>
           </Link>
           <Link href={"/models"} className="btn btn-app">
             <BsArrowRight />
-            <p>Models & Design</p>
+            <span>Models & Design</span>
           </Link>
           <Link href={"/highlight"} className="btn btn-app">
             <AiFillPicture />
-            <p>Highlight Artworks</p>
+            <span>Highlight Artworks</span>
           </Link>
           <Link href={"/hardware"} className="btn btn-app">
             <PiGraphicsCardFill />
-            <p>System/Hardware</p>
+            <span>System / Hardware</span>
           </Link>
           <Link href={"/contact"} className="btn btn-app">
             <RiSaveFill />
-            <p>Contact</p>
+            <span>Contact</span>
           </Link>
         </div>
       </div>

@@ -46,12 +46,16 @@
           color: var(--lime);
         }
 
-        p {
+        p,
+        span {
           color: white;
           line-height: 1;
           font-size: 1.5rem;
           text-transform: uppercase;
           font-family: var(--fontH);
+          // white-space: wrap;
+          max-width: 100%;
+          text-wrap: wrap;
         }
       }
     }

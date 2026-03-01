@@ -13,7 +13,7 @@ import dayjs from "dayjs";
 import { clearInterval } from "timers";
 // Windows Navigation  Bar Fixed
 export default function Header({}: Props) {
-  const [currentTime, setCurrentTime] = useState();
+  const [currentTime, setCurrentTime] = useState<null | dayjs.Dayjs>();
 
   const [settingBarOpen, setSettingBarOpen] = useState(false);
 
