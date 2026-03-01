@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./clock.scss";
 type Props = {};
@@ -39,7 +40,6 @@ export default function page({}: Props) {
                   src="https://player.twitch.tv/?channel=nikulaswraith&parent=nikulaswraith.com&autoplay=false&muted=false&time=0s"
                   width="100%"
                   height="100%"
-                  frameBorder="0"
                   allowFullScreen
                 ></iframe>
               </div>

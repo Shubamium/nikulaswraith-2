@@ -50,7 +50,7 @@ export default function CursorEffect({}: Props) {
   useEffect(() => {
     document.onmousemove = (e) => {
       setCursorPos([e.clientX, e.clientY]);
-      console.log(e.clientX, e.clientY);
+      // console.log(e.clientX, e.clientY);
 
       spawnCubeParticle();
     };
