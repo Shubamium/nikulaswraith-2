@@ -1,11 +1,34 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./clock.scss";
 type Props = {};
 import { FaWifi } from "react-icons/fa";
 import MapContainer from "./MapContainer";
+import {
+  dateFormat,
+  TimeFormat,
+  timeFormatS,
+  useTime,
+  useWorldClock,
+} from "./ClockUtil";
+import dayjs, { Dayjs } from "dayjs";
+
+import tz from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
+import duration from "dayjs/plugin/duration";
+dayjs.extend(tz);
+dayjs.extend(utc);
+dayjs.extend(duration);
 
 export default function page({}: Props) {
+  const [mounted, setMounted] = useState(false);
+  const currentTime = useTime();
+  const wm = useWorldClock();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <main id={"p_clock"}>
       <div className="l">
@@ -37,7 +60,7 @@ export default function page({}: Props) {
             <div className="streampart">
               <div className="twitch-embed-container">
                 <iframe
-                  src="https://player.twitch.tv/?channel=nikulaswraith&parent=nikulaswraith.com&autoplay=false&muted=false&time=0s"
+                  src={`https://player.twitch.tv/?channel=nikulaswraith&parent=${process.env.TWITCH_HOST}&autoplay=false&muted=false&time=0s`}
                   width="100%"
                   height="100%"
                   allowFullScreen
@@ -64,21 +87,25 @@ export default function page({}: Props) {
             <div className="timer">
               <div className="at">
                 <h2>Your Current Time:</h2>
-                <p>10:46:13 PM</p>
+                <p>{currentTime?.format(timeFormatS)}</p>
               </div>
               <div className="dates">
-                <p>Jan 12, 2026 10:46:54 PM Asia/Bangkok</p>
+                <p>
+                  {currentTime?.format(dateFormat)} - {dayjs.tz.guess()}
+                </p>
               </div>
             </div>
-            <div className="center-line"></div>
+            <div className="center-line">
+              <img src="/d/concave.png" alt="" />
+            </div>
             <div className="timer">
               <div className="at">
-                <h2>Your Current Time:</h2>
-                <p>10:46:13 PM</p>
+                <h2>Time Until Next Stream:</h2>
+                <p>{"TBA"}</p>
               </div>
               <div className="dates">
-                <h2>Central US:</h2>
-                <p>23:02 PM - 12 January 2026</p>
+                {/* <h2>Central US:</h2>
+                <p>23:02 PM - 12 January 2026</p> */}
               </div>
             </div>
           </div>
@@ -91,63 +118,32 @@ export default function page({}: Props) {
           </div>
 
           <div className="content">
-            <div className="time-card btn">
-              <div className="info">
-                <h2>12:56:32 PM</h2>
-                <p>COUNTRY </p>
-              </div>
-              <div className="date">
-                <p>12 January 2026</p>
-              </div>
-            </div>
-            <div className="time-card btn">
-              <div className="info">
-                <h2>12:56:32 PM</h2>
-                <p>COUNTRY </p>
-              </div>
-              <div className="date">
-                <p>12 January 2026</p>
-              </div>
-            </div>
-            <div className="time-card btn">
-              <div className="info">
-                <h2>12:56:32 PM</h2>
-                <p>COUNTRY </p>
-              </div>
-              <div className="date">
-                <p>12 January 2026</p>
-              </div>
-            </div>
-            <div className="time-card btn">
-              <div className="info">
-                <h2>12:56:32 PM</h2>
-                <p>COUNTRY </p>
-              </div>
-              <div className="date">
-                <p>12 January 2026</p>
-              </div>
-            </div>
-            <div className="time-card btn">
-              <div className="info">
-                <h2>12:56:32 PM</h2>
-                <p>COUNTRY </p>
-              </div>
-              <div className="date">
-                <p>12 January 2026</p>
-              </div>
-            </div>
-            <div className="time-card btn">
-              <div className="info">
-                <h2>12:56:32 PM</h2>
-                <p>COUNTRY </p>
-              </div>
-              <div className="date">
-                <p>12 January 2026</p>
-              </div>
-            </div>
+            {mounted && (
+              <>
+                <TimeCard tm={wm.japanCR} text={"Japan"} />
+                <TimeCard tm={wm.pacificCR} text={"Pacific"} />
+                <TimeCard tm={wm.centralCR} text={"Central US"} />
+                <TimeCard tm={wm.londonCR} text={"London"} />
+                <TimeCard tm={wm.germanyCR} text={"Germany"} />
+              </>
+            )}
           </div>
         </div>
       </div>
     </main>
+  );
+}
+
+function TimeCard({ tm, text }: { tm: Dayjs | undefined; text: string }) {
+  return (
+    <div className="time-card btn">
+      <div className="info">
+        <h2>{tm?.format(TimeFormat.timeFormatS)}</h2>
+        <p>{text}</p>
+      </div>
+      <div className="date">
+        <p>{tm?.format(dateFormat)}</p>
+      </div>
+    </div>
   );
 }

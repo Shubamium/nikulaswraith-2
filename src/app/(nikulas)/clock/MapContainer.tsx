@@ -8,8 +8,10 @@ import * as ct from "countries-and-timezones";
 // Time Library
 import dayjs, { Dayjs } from "dayjs";
 import tz from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
-import duration from "dayjs/plugin/duration";
+
+import { dateFormat, timeFormatS, useTime } from "./ClockUtil";
+
+dayjs.extend(tz);
 
 export default function MapContainer({}: Props) {
   const [selectedCountry] = useMap("worldmap");
@@ -22,7 +24,7 @@ export default function MapContainer({}: Props) {
 
   // The data for that country timezone
   const [activeCountryData, setActiveCountryData] = useState<any>();
-
+  const activeCountryTime = useTime(activeTz ?? undefined);
   useEffect(() => {
     if (selectedCountry) {
       const data = ct.getCountry(selectedCountry);
@@ -51,19 +53,13 @@ export default function MapContainer({}: Props) {
         {selectedCountry && (
           <div className="time-detail">
             <div className="tz-head ">
-              <h2 className="title">
-                {" "}
-                WORLD <br /> CLOCK
-              </h2>
               <h2>{activeCountryData?.name?.toUpperCase()}</h2>
             </div>
 
             <div className="setting confine">
               {TimezoneList.length !== 0 && (
                 <>
-                  <p>
-                    {">>"} Select a location {"<<"}
-                  </p>
+                  <p>{">>"} Select a location</p>
                   <select
                     name="timezone-sel"
                     id="timezone-sel"
@@ -90,8 +86,9 @@ export default function MapContainer({}: Props) {
                 show={shouldShowcConnectionLost}
                 country={selectedCountry}
               /> */}
-                <p>{activeTz}</p>
-                <p>{selectedCountry}</p>
+                <p className="attime">
+                  {activeCountryTime?.format(timeFormatS)}
+                </p>
               </div>
             )}
           </div>
