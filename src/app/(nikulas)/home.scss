@@ -12,6 +12,12 @@
       border-left: 1px solid white;
       border-top: 1px solid white;
     }
+    @media screen and (max-width: 1024px) {
+      scale: 0.4;
+      top: 2%;
+      left: 2%;
+    }
+    transform-origin: top left;
     gap: 0.65em;
     .blocks-a {
       display: flex;
@@ -78,5 +84,11 @@
     right: 20px;
     user-select: none;
     pointer-events: none;
+    @media screen and (max-width: 1024px) {
+      scale: 0.5;
+      top: 2%;
+      right: 2%;
+    }
+    transform-origin: top right;
   }
 }

@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = {};
 import "./profile.scss";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaBluesky, FaXTwitter } from "react-icons/fa6";
 import { GoTriangleLeft } from "react-icons/go";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { getPayload } from "payload";
@@ -112,6 +112,13 @@ export default async function page({}: Props) {
                   className="btn btn-ct"
                 >
                   <FaYoutubeSquare />
+                </a>
+                <a
+                  href="https://www.youtube.com/@nikulaswraithextra"
+                  target="_blank"
+                  className="btn btn-ct"
+                >
+                  <FaBluesky />
                 </a>
                 <div className="social-head">
                   <p>

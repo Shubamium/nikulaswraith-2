@@ -24,9 +24,12 @@ export default function page({}: Props) {
   const [mounted, setMounted] = useState(false);
   const currentTime = useTime();
   const wm = useWorldClock();
-
+  const [nwSpeed, setnwSpeed] = useState("");
   useEffect(() => {
     setMounted(true);
+    setInterval(() => {
+      setnwSpeed((Math.random() * 15).toFixed(1));
+    }, 100);
   }, []);
 
   return (
@@ -74,7 +77,7 @@ export default function page({}: Props) {
                 </div>
                 <div className="conn-info">
                   <p className="nn">NW Network</p>
-                  <p>Connected - 14.7GB/s</p>
+                  <p>Connected - {nwSpeed}GB/s</p>
                 </div>
               </div>
               <div className="title">

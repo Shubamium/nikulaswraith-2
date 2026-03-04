@@ -10,6 +10,13 @@
     gap: 2em;
     padding: 3em;
     padding-right: 6%;
+    @media screen and (max-width: 1440px) {
+      padding: 0.5em;
+    }
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
     .left {
       .display {
         .activeimg {
@@ -24,11 +31,26 @@
       .info {
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width: 1024px) {
+          flex-wrap: wrap;
+        }
+
+        @media screen and (max-width: 550px) {
+          flex-direction: column;
+        }
         .title {
           color: white;
           font-size: 1.4rem;
           font-family: var(--fontH);
           font-weight: 400;
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+          }
+          @media screen and (max-width: 550px) {
+            font-size: 0.8rem;
+            text-align: center;
+            margin: 1em;
+          }
         }
 
         .controls {
@@ -39,6 +61,16 @@
           display: flex;
           padding: 0.5em 1em;
           padding-left: 2em;
+          flex-wrap: wrap;
+
+          @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            align-items: flex-end;
+          }
+          @media screen and (max-width: 550px) {
+            flex-direction: row;
+            justify-content: space-between;
+          }
           .pg {
             display: flex;
             gap: 0.5em;
@@ -47,6 +79,10 @@
               border: 1px solid white;
               height: 40px;
               width: 24px;
+              @media screen and (max-width: 550px) {
+                height: 30px;
+                width: 15px;
+              }
               cursor: pointer;
               &:hover {
                 background: rgb(146, 146, 146);
@@ -63,11 +99,17 @@
             justify-content: center;
             gap: 0.25em;
             min-width: 140px;
+            @media screen and (max-width: 550px) {
+              justify-content: flex-end;
+            }
             .btn-switch {
               color: var(--lblue);
               width: 30px;
               height: 50px;
-
+              @media screen and (max-width: 550px) {
+                width: 15px;
+                height: 40px;
+              }
               svg {
                 width: 100%;
                 scale: 3 2.4;
@@ -77,6 +119,9 @@
             p {
               font-size: 2rem;
               font-family: var(--fontH);
+              @media screen and (max-width: 550px) {
+                font-size: 1.2rem;
+              }
             }
           }
         }
@@ -91,6 +136,9 @@
       gap: 1em;
       .abdzig {
         max-width: 70%;
+        @media screen and (max-width: 550px) {
+          display: none;
+        }
       }
       .panel {
         width: 100%;
@@ -100,7 +148,16 @@
         border-radius: 0em 150px 0em 0em;
         padding: 2em;
         padding-bottom: 1em;
+        @media screen and (max-width: 1024px) {
+          border-radius: 0 50px 0 0;
+          padding: 1em;
+        }
+
         .source-top {
+          @media screen and (max-width: 768px) {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+          }
           .srcpfp {
             background: #121c32;
             width: 200px;
@@ -109,6 +166,11 @@
             border: 3px solid var(--lime);
             margin-bottom: 1em;
             object-fit: cover;
+            @media screen and (max-width: 1024px) {
+              width: 70%;
+              aspect-ratio: 1 / 1;
+              height: auto;
+            }
           }
 
           .sh {
@@ -117,6 +179,9 @@
               font-size: 1.5rem;
               font-weight: normal;
               line-height: 1;
+              @media screen and (max-width: 1024px) {
+                font-size: 1.2rem;
+              }
             }
             p {
               font-weight: normal;
@@ -125,6 +190,9 @@
               line-height: 1;
               font-weight: bold;
               font-size: 1.2rem;
+              @media screen and (max-width: 1024px) {
+                font-size: 1rem;
+              }
             }
           }
           .desc {
@@ -133,6 +201,14 @@
             line-height: 1.4;
             margin-bottom: 50px;
             min-height: 190px;
+            @media screen and (max-width: 1024px) {
+              min-height: 140px;
+              font-size: 0.8rem;
+            }
+            @media screen and (max-width: 768px) {
+              grid-column: span 2;
+              min-height: auto;
+            }
           }
         }
         .source-bottom {
@@ -149,6 +225,10 @@
             height: 50px;
             padding: 0.2em;
             border-radius: 0.25em;
+            @media screen and (max-width: 550px) {
+              width: 55px;
+              height: 35px;
+            }
             svg {
               width: 100%;
               height: 100%;
@@ -165,6 +245,10 @@
 
               width: 30px;
               height: 30px;
+              @media screen and (max-width: 1024px) {
+                width: 20%;
+                height: auto;
+              }
             }
           }
         }

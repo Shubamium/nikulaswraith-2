@@ -1,6 +1,9 @@
 #p_hardware {
   .content {
     padding: 2%;
+    @media screen and (max-width: 1024px) {
+      padding-bottom: 100px;
+    }
   }
 
   .sys-head {
@@ -12,9 +15,18 @@
 
     .mtgrad {
       font-size: 4rem;
+      @media screen and (max-width: 1280px) {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: 1200px) {
+        font-size: 1.1rem;
+      }
     }
     p {
       font-size: 1.5rem;
+      @media screen and (max-width: 1280px) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -24,6 +36,17 @@
     align-items: center;
     gap: 1em;
     margin-top: 2em;
+    @media screen and (max-width: 1280px) {
+      flex-wrap: wrap;
+    }
+    @media screen and (max-width: 1024px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: flex-start;
+    }
+    @media screen and (max-width: 350px) {
+      grid-template-columns: 1fr;
+    }
     .sys-card {
       background: url("/b/dot.png"), #18191dda;
       background-size: 10px;
@@ -36,6 +59,9 @@
       padding: 2em;
       min-width: 0%;
       transition: all 400ms ease;
+      @media screen and (max-width: 550px) {
+        padding: 1em;
+      }
       &:hover {
         scale: 1.1;
         rotate: -2deg;
@@ -61,6 +87,9 @@
         margin: 0.25em 0;
         color: var(--lblue);
         margin-bottom: 1em;
+        @media screen and (max-width: 1024px) {
+          font-size: 0.8rem;
+        }
       }
 
       p {
@@ -68,6 +97,9 @@
         font-family: var(--fontM);
         line-height: 1;
         min-height: 90px;
+        @media screen and (max-width: 1024px) {
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -84,6 +116,9 @@
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    @media screen and (max-width: 550px) {
+      grid-template-columns: 1fr;
+    }
     .left {
       background: #0a0c14;
       display: flex;
@@ -92,6 +127,9 @@
       padding: 1.3em;
       .logo {
         max-width: 100%;
+        @media screen and (max-width: 550px) {
+          max-height: 150px;
+        }
       }
     }
     .right {
@@ -103,15 +141,24 @@
       text-align: center;
       h3 {
         margin: 0.5em;
+        @media screen and (max-width: 1024px) {
+          font-size: 0.8rem;
+          opacity: 0.45;
+        }
       }
       .osrun {
         background: #0000003b;
         padding: 0.55em 2em;
         padding-top: 1em;
         border-radius: 1em;
-
+        @media screen and (max-width: 550px) {
+          padding: 0.2em 0.5em;
+        }
         .mtgrad {
           font-size: 1.2rem;
+          @media screen and (max-width: 1024px) {
+            font-size: 0.8rem;
+          }
         }
         .dist {
           color: var(--cyan);
@@ -126,6 +173,12 @@
         width: 100%;
         padding: 1em;
         font-family: var(--fontH);
+        @media screen and (max-width: 1024px) {
+          font-size: 0.7rem;
+        }
+        @media screen and (max-width: 550px) {
+          flex-wrap: wrap;
+        }
         p {
         }
         a {

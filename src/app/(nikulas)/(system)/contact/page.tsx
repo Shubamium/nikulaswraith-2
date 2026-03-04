@@ -16,7 +16,10 @@ export default function page({}: Props) {
       }}
     >
       <div className="ct-head">
-        <h2 className="mtgrad"> CONTACT {">>>>>>>>"}</h2>
+        <h2 className="mtgrad">
+          {" "}
+          CONTACT <span>{">>>>>>>>"}</span>
+        </h2>
         <p>
           Contact Placeholder Text Here Hello, I’m Nikulas Wraith. I’m a variety
           streamer and a Virtual Phantom VTuber. My soul was lost many long

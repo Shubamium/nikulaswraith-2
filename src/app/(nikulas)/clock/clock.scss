@@ -6,6 +6,15 @@
   // overflow-y: scroll;
   // padding-bottom: 200px;
   max-height: 100vh;
+  @media screen and (max-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+    max-height: auto;
+    overflow-y: auto;
+  }
+  @media screen and (max-width: 550px) {
+    padding: 1em;
+  }
   .cpanel {
     background: #d9d9d91f;
     border-radius: 1em;
@@ -16,6 +25,10 @@
         background: #17171789;
         text-align: center;
         padding: 0.55em;
+        border-radius: 0.7em 0.7em 0 0;
+        @media screen and (max-width: 1024px) {
+          font-size: 1rem;
+        }
       }
     }
     .credits {
@@ -34,12 +47,18 @@
         color: white;
         line-height: 0.98;
         font-weight: 300;
+        @media screen and (max-width: 1024px) {
+          font-size: 0.7rem;
+        }
       }
       p {
         font-weight: bold;
         font-family: var(--fontH);
         font-size: 1.2rem;
         color: var(--lblue);
+        @media screen and (max-width: 1024px) {
+          font-size: 1rem;
+        }
         font-weight: 300;
         text-transform: uppercase;
       }
@@ -51,20 +70,41 @@
     height: 90vh;
     grid-template-rows: 1.5fr 2fr;
     gap: 2em;
+    @media screen and (max-width: 1024px) {
+      height: auto;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
     .top {
       // background: black;
       display: grid;
       grid-template-columns: 2fr 2fr 1fr;
       gap: 1em;
+      @media screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .map-container {
+      }
       .world-clock {
         background: #d9d9d91f;
         height: 100%;
         padding: 1em;
+        @media screen and (max-width: 1024px) {
+          height: 300px;
+        }
+        @media screen and (max-width: 768px) {
+          height: auto;
+        }
         border-radius: 1em;
         .title {
           color: var(--lblue);
           font-size: 3rem;
           line-height: 1;
+          @media screen and (max-width: 768px) {
+            margin-bottom: 1em;
+          }
         }
         .info {
           flex-direction: column;
@@ -85,6 +125,10 @@
             h2 {
               font-size: 4rem;
               line-height: 1.1;
+              @media screen and (max-width: 1024px) {
+                font-size: 1.5rem;
+                text-align: center;
+              }
             }
           }
 
@@ -94,6 +138,9 @@
               padding-left: 0.5em;
               font-size: 1.4rem;
               color: white;
+              @media screen and (max-width: 768px) {
+                font-size: 1rem;
+              }
             }
             select {
               background: linear-gradient(to bottom, var(--lime), var(--lblue));
@@ -103,6 +150,9 @@
               border: 2px solid var(--b1);
               width: 100%;
               padding: 0.5em;
+              @media screen and (max-width: 768px) {
+                font-size: 0.8rem;
+              }
             }
           }
           .selectedTime {
@@ -110,16 +160,25 @@
               font-size: 4rem;
               font-family: var(--fontH);
               text-align: center;
+              @media screen and (max-width: 768px) {
+                font-size: 2.2rem;
+              }
+              @media screen and (max-width: 420px) {
+                font-size: 1.8rem;
+              }
             }
           }
         }
       }
-      .map-container {
+      #worldmap {
         width: 100%;
         height: 100%;
         background: black;
         border-radius: 1em;
         border: 3px solid var(--lblue);
+        @media screen and (max-width: 1024px) {
+          height: 40vh;
+        }
       }
     }
     .bottom {
@@ -127,6 +186,9 @@
       display: grid;
       grid-template-columns: 1fr 1.4fr;
       gap: 2em;
+      @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr;
+      }
       .live-part {
         display: flex;
         flex-direction: column;
@@ -144,11 +206,20 @@
           display: flex;
           border-radius: 1em;
           padding: 1em;
+          @media screen and (max-width: 550px) {
+            padding: 0.5em;
+          }
+          @media screen and (max-width: 380px) {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 2em;
+          }
           .connection-indicator {
             display: flex;
             gap: 1em;
             width: 100%;
             align-items: center;
+
             .icon {
               // width: 100%;
               height: 100%;
@@ -169,6 +240,9 @@
                 line-height: 1;
                 font-weight: bold;
               }
+              @media screen and (max-width: 550px) {
+                font-size: 0.7rem;
+              }
             }
           }
           justify-content: space-between;
@@ -178,10 +252,16 @@
             h2 {
               color: var(--lblue);
               font-size: 1.8rem;
+              @media screen and (max-width: 1024px) {
+                font-size: 1rem;
+              }
             }
             p {
               color: white;
               font-weight: bold;
+              @media screen and (max-width: 1024px) {
+                font-size: 0.7rem;
+              }
             }
           }
         }
@@ -204,6 +284,9 @@
               font-size: 1.4rem;
               color: var(--lime);
               font-weight: bold;
+              @media screen and (max-width: 550px) {
+                font-size: 1rem;
+              }
             }
           }
           .at {
@@ -213,6 +296,13 @@
 
             h2 {
               color: white;
+              @media screen and (max-width: 1024px) {
+                text-align: center;
+              }
+              @media screen and (max-width: 550px) {
+                font-size: 0.8rem;
+                opacity: 0.5;
+              }
             }
             p {
               font-size: 6rem;
@@ -221,12 +311,22 @@
               color: var(--lblue);
               font-weight: bolder;
               font-family: var(--fontH);
+              @media screen and (max-width: 1600px) {
+                font-size: 4rem;
+              }
+              @media screen and (max-width: 1280px) {
+                font-size: 3rem;
+              }
+              @media screen and (max-width: 420px) {
+                font-size: 2.2rem;
+              }
             }
           }
         }
         .center-line {
           width: 100%;
           height: 20px;
+          margin: 0.3em 0;
           img {
             border: none;
             width: 100%;
@@ -244,7 +344,9 @@
       max-height: 100%;
       padding-bottom: 0;
     }
-
+    @media screen and (max-width: 1024px) {
+      padding-bottom: 200px;
+    }
     .content {
       padding: 1em;
       display: flex;
@@ -252,6 +354,11 @@
       max-height: 80vh;
       overflow-y: auto;
       gap: 1em;
+      @media screen and (max-width: 1024px) {
+        max-height: initial;
+        height: auto;
+        overflow: auto;
+      }
     }
     .time-card {
       background: linear-gradient(to bottom, var(--lblue), var(--lime));
@@ -259,11 +366,15 @@
       border-radius: 1em;
 
       box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.305);
+
       .info {
         color: #121c32;
         h2 {
           font-size: 2.4rem;
           line-height: 1;
+          @media screen and (max-width: 420px) {
+            font-size: 1.6rem;
+          }
         }
         p {
           font-weight: bold;

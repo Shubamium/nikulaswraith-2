@@ -5,18 +5,39 @@
   height: 100vh;
   padding-bottom: 10vh;
   position: relative;
-
+  @media screen and (max-width: 1024px) {
+    height: auto;
+    padding: 2em;
+    padding-bottom: 100px;
+  }
+  @media screen and (max-width: 550px) {
+    height: 100vh;
+  }
   .panel {
     background: #d9d9d90f;
     padding: 2em 3em;
     border-radius: 1em;
     // backdrop-filter: blur(4px);
     box-shadow: 0px 0px 10px 2px #d9d9d91f inset;
+
+    @media screen and (max-width: 420px) {
+      padding: 1em 2em;
+    }
     .mtgrad {
       font-size: 6rem;
       margin: 0 auto;
       text-align: center;
       margin-bottom: 0.25em;
+      @media screen and (max-width: 1280px) {
+        font-size: 4.5rem;
+      }
+      @media screen and (max-width: 1024px) {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: 420px) {
+        font-size: 1.4rem;
+        margin-bottom: 1em;
+      }
     }
 
     .apps-li {
@@ -25,6 +46,16 @@
       align-items: center;
       gap: 1.1em;
       text-align: center;
+      @media screen and (max-width: 1024px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      @media screen and (max-width: 550px) {
+        gap: 1em;
+      }
+      @media screen and (max-width: 420px) {
+        gap: 0.5em;
+      }
       .btn-app {
         height: 240px;
         width: 210px;
@@ -34,6 +65,15 @@
         border-radius: 1em;
         justify-content: center;
         flex-direction: column;
+        @media screen and (max-width: 1280px) {
+          width: 100%;
+        }
+        @media screen and (max-width: 1024px) {
+          height: 100%;
+          padding: 1em 0.5em;
+        }
+        @media screen and (max-width: 550px) {
+        }
         gap: 1em;
         &:hover {
           border: 3px solid var(--lime);
@@ -44,6 +84,13 @@
           width: 120px;
           height: 120px;
           color: var(--lime);
+          @media screen and (max-width: 1280px) {
+            width: 50%;
+            height: auto;
+          }
+          @media screen and (max-width: 1024px) {
+            max-height: 100px;
+          }
         }
 
         p,
@@ -56,6 +103,15 @@
           // white-space: wrap;
           max-width: 100%;
           text-wrap: wrap;
+          @media screen and (max-width: 1024px) {
+            font-size: 1.2rem;
+          }
+          @media screen and (max-width: 550px) {
+            font-size: 1rem;
+          }
+          @media screen and (max-width: 420px) {
+            font-size: 0.8rem;
+          }
         }
       }
     }

@@ -9,6 +9,13 @@
     }
   }
 
+  @media screen and (max-width: 1280px) {
+    padding: 1em;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0.1em;
+  }
+
   .window {
     border: 2px solid white;
     transition: all 450ms cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -17,23 +24,58 @@
 
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 1024px) {
+      height: calc(100vh - 70px) !important;
+    }
     .heading {
       background: white;
       display: flex;
       justify-content: space-between;
+      @media screen and (max-width: 1024px) {
+        align-items: center;
+      }
+
       .left {
         gap: 1em;
         padding: 0.1em 0.5em;
         display: flex;
         align-items: center;
-
+        @media screen and (max-width: 550px) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+        }
         h2 {
           color: var(--lblue);
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+          }
+          @media screen and (max-width: 550px) {
+            line-height: 1;
+          }
+          @media screen and (max-width: 420px) {
+            font-size: 0.8rem;
+          }
         }
         hr {
           min-width: 50px;
           height: 2px;
           background: black;
+          @media screen and (max-width: 1024px) {
+            width: 20px;
+            min-width: 0;
+          }
+          @media screen and (max-width: 550px) {
+            display: none;
+          }
+        }
+        p {
+          @media screen and (max-width: 1024px) {
+            font-size: 0.8rem;
+          }
+          @media screen and (max-width: 420px) {
+            font-size: 0.6rem;
+          }
         }
       }
 
@@ -45,6 +87,13 @@
         margin-top: 0.5em;
         margin-right: 0.5em;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 60%);
+        @media screen and (max-width: 1024px) {
+          scale: 1;
+          margin-top: 0;
+        }
+        @media screen and (max-width: 1024px) {
+          clip-path: none;
+        }
         .btn-heading {
           background: linear-gradient(to bottom, #00ffdd, var(--lblue));
           padding: 0.1em 0.4em;
@@ -63,6 +112,19 @@
           font-family: var(--fontH);
           padding: 0.1em 1em;
           padding-left: 2em;
+          @media screen and (max-width: 1280px) {
+            font-size: 1.2rem;
+          }
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+            padding-left: 1em;
+          }
+          @media screen and (max-width: 550px) {
+            font-size: 0.7rem;
+            display: none;
+          }
+          @media screen and (max-width: 420px) {
+          }
         }
       }
     }
@@ -73,6 +135,9 @@
       height: 80vh;
       overflow-x: clip;
       overflow-y: auto;
+      @media screen and (max-width: 1024px) {
+        height: 100%;
+      }
     }
   }
 }
