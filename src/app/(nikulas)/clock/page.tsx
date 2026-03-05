@@ -63,7 +63,7 @@ export default function page({}: Props) {
             <div className="streampart">
               <div className="twitch-embed-container">
                 <iframe
-                  src={`https://player.twitch.tv/?channel=nikulaswraith&parent=${process.env.TWITCH_HOST}&autoplay=false&muted=false&time=0s`}
+                  src={`https://player.twitch.tv/?channel=nikulaswraith&parent=${process.env.NEXT_PUBLIC_TWITCH_HOST}&autoplay=false&muted=false&time=0s`}
                   width="100%"
                   height="100%"
                   allowFullScreen
