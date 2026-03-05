@@ -358,6 +358,8 @@
         max-height: initial;
         height: auto;
         overflow: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
     }
     .time-card {
@@ -372,14 +374,22 @@
         h2 {
           font-size: 2.4rem;
           line-height: 1;
-          @media screen and (max-width: 420px) {
+
+          @media screen and (max-width: 768px) {
             font-size: 1.6rem;
+          }
+          @media screen and (max-width: 550px) {
+            font-size: 0.8rem;
           }
         }
         p {
           font-weight: bold;
           font-size: 1.4rem;
           line-height: 0.7;
+          @media screen and (max-width: 550px) {
+            font-size: 1rem;
+            margin-top: 0.5em;
+          }
         }
         padding-bottom: 2em;
       }
@@ -387,6 +397,9 @@
         text-align: right;
         color: #121c32;
         font-size: 1.3rem;
+        @media screen and (max-width: 550px) {
+          font-size: 0.9rem;
+        }
       }
     }
   }

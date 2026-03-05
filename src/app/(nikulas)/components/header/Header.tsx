@@ -26,6 +26,17 @@ export default function Header({}: Props) {
     if (!window || !document) return;
     setCurrentTime(dayjs());
     setHref(window.location.href);
+
+    window.addEventListener("audiochange", (e: any) => {
+      setVol(e.detail.vol);
+
+      console.log(e.detail.vol / 100);
+    });
+    window.addEventListener("toggleMute", (e: any) => {
+      setMuted((muted) => {
+        return !muted;
+      });
+    });
   }, []);
   useEffect(() => {
     if (audioRef.current) {
