@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Athiti, Audiowide } from "next/font/google";
 import "./globals.scss";
-import { CSSProperties } from "react";
+import { CSSProperties, ViewTransition } from "react";
 import Header from "./components/header/Header";
 import CursorEffect from "./components/cursor/CursorEffect";
 
@@ -39,7 +39,7 @@ export default function RootLayout({
         }
       >
         <Header />
-        {children}
+        <ViewTransition name="main-layout">{children}</ViewTransition>
         <CursorEffect />
       </body>
     </html>

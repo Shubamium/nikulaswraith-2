@@ -1,3 +1,46 @@
+@keyframes scale-in {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+@keyframes scale-out {
+  from {
+    scale: 1;
+  }
+  50% {
+    scale: 0.5 1;
+  }
+  to {
+    scale: 0;
+    opacity: 0;
+  }
+}
+::view-transition-old(main-layout) {
+  animation: scale-out 0.35s ease forwards;
+}
+::view-transition-new(main-layout) {
+  animation: scale-in 0.35s ease forwards;
+  transform-origin: 20% 100%;
+}
+
+::view-transition-new(empty) {
+  animation: none;
+  animation: none;
+  animation-duration: 0s !important;
+}
+::view-transition-old(empty) {
+  animation: none;
+  animation: none;
+  animation-duration: 0s !important;
+}
+
+::view-transition-group(empty) {
+  animation-duration: 0s !important;
+}
+
 :root {
   --g: #1f1f1f;
   --dg: #262728;

@@ -1,4 +1,36 @@
 #p_contact {
+  .loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.541);
+    z-index: 100;
+    display: flex;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0%;
+    left: 0%;
+
+    svg {
+      width: 50px;
+      height: 50px;
+      animation: speen 2s infinite linear;
+    }
+    font-size: 1.2rem;
+
+    transition: all 1500ms ease;
+    &.active {
+      user-select: initial;
+      pointer-events: initial;
+      opacity: 1;
+    }
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+  }
   .window {
     max-width: 1100px;
     margin: 0 auto;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { startTransition, useState, ViewTransition } from "react";
 import WindowLayout from "../components/layout/winLayout/WindowLayout";
 
 import "./explorer.scss";
@@ -41,7 +41,7 @@ export default function Explorer({
   const toDisplay = activeFolder?.children ? activeFolder.children : root.files;
 
   return (
-    <>
+    <ViewTransition name="empty" default={"none"}>
       <WindowLayout
         closeRoute="/"
         id="p_explorer"
@@ -125,8 +125,10 @@ export default function Explorer({
                       if (f.type === "folder") {
                         switchFolder(f.id);
                       } else {
-                        setShowFile(true);
-                        setCurrentFile(f);
+                        startTransition(() => {
+                          setShowFile(true);
+                          setCurrentFile(f);
+                        });
                       }
                     }}
                   >
@@ -189,6 +191,6 @@ export default function Explorer({
           </>
         )}
       </div>
-    </>
+    </ViewTransition>
   );
 }

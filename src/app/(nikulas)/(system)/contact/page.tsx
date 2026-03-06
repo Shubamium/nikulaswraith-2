@@ -1,11 +1,21 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 type Props = {};
 import "./contact.scss";
 import WindowLayout from "@/app/(nikulas)/components/layout/winLayout/WindowLayout";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { FaDiscord, FaTwitch } from "react-icons/fa";
+import { sendMail } from "../../util/mail";
+import { BiLoader } from "react-icons/bi";
 export default function page({}: Props) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   return (
     <WindowLayout
       closeRoute="/menu"
@@ -15,6 +25,19 @@ export default function page({}: Props) {
         description: "Reach out to the system administrator",
       }}
     >
+      <div className={`loading ${loading ? "active" : "inactive"}`}>
+        {success ? (
+          <>
+            <p>Message sent successfully!</p>
+          </>
+        ) : (
+          <>
+            <BiLoader />
+            <p>Sending message...</p>
+          </>
+        )}
+      </div>
+
       <div className="ct-head">
         <h2 className="mtgrad">
           {" "}
@@ -28,12 +51,31 @@ export default function page({}: Props) {
           meet like
         </p>
       </div>
-      <form action="#" className="ctform">
+      <form
+        className="ctform"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          setLoading(true);
+          const res = await sendMail(name, email, message);
+          setTimeout(() => {
+            setSuccess(res);
+            setTimeout(() => {
+              setLoading(false);
+            }, 2000);
+          }, 2000);
+        }}
+      >
         <div className="form-part">
           <div className="ig">
             <div className="input">
               <label htmlFor="name">Name</label>
-              <input type="text" name="name" placeholder="John Vtuber" />
+              <input
+                type="text"
+                name="name"
+                placeholder="John Vtuber"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className="input">
               <label htmlFor="email">E-mail</label>
@@ -41,13 +83,20 @@ export default function page({}: Props) {
                 type="email"
                 name="email"
                 placeholder="john.vtuber@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
 
           <div className="input ta">
             <label htmlFor="name">Message</label>
-            <textarea name="name" placeholder="Write your messages..." />
+            <textarea
+              name="name"
+              placeholder="Write your messages..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
           </div>
         </div>
         <div className="action">
