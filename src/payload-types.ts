@@ -95,12 +95,14 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     profile: Profile;
+    clock: Clock;
     Hardware: Hardware;
     SystemStorage: SystemStorage;
     MediaArchive: MediaArchive;
   };
   globalsSelect: {
     profile: ProfileSelect<false> | ProfileSelect<true>;
+    clock: ClockSelect<false> | ClockSelect<true>;
     Hardware: HardwareSelect<false> | HardwareSelect<true>;
     SystemStorage: SystemStorageSelect<false> | SystemStorageSelect<true>;
     MediaArchive: MediaArchiveSelect<false> | MediaArchiveSelect<true>;
@@ -517,6 +519,25 @@ export interface Profile {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clock".
+ */
+export interface Clock {
+  id: string;
+  'next-stream'?: string | null;
+  isActive?: boolean | null;
+  credits?:
+    | {
+        name?: string | null;
+        role?: string | null;
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Hardware".
  */
 export interface Hardware {
@@ -566,6 +587,25 @@ export interface MediaArchive {
 export interface ProfileSelect<T extends boolean = true> {
   bio?: T;
   trailer?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clock_select".
+ */
+export interface ClockSelect<T extends boolean = true> {
+  'next-stream'?: T;
+  isActive?: T;
+  credits?:
+    | T
+    | {
+        name?: T;
+        role?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
