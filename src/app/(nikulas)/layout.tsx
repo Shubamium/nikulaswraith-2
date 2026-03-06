@@ -4,6 +4,7 @@ import "./globals.scss";
 import { CSSProperties, ViewTransition } from "react";
 import Header from "./components/header/Header";
 import CursorEffect from "./components/cursor/CursorEffect";
+import HeaderWrapper from "./components/header/HeaderWrapper";
 
 const athiti = Athiti({
   variable: "--fontP",
@@ -38,7 +39,7 @@ export default function RootLayout({
           } as CSSProperties
         }
       >
-        <Header />
+        <HeaderWrapper />
         <ViewTransition name="main-layout">{children}</ViewTransition>
         <CursorEffect />
       </body>
