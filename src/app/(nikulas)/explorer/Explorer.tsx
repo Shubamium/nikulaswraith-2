@@ -41,7 +41,7 @@ export default function Explorer({
   const toDisplay = activeFolder?.children ? activeFolder.children : root.files;
 
   return (
-    <ViewTransition name="empty" default={"none"}>
+    <ViewTransition name="empty">
       <WindowLayout
         closeRoute="/"
         id="p_explorer"

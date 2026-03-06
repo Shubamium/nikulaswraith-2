@@ -1,5 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 type Props = {};
 
@@ -11,13 +16,15 @@ import { BiSolidCog, BiVolumeFull } from "react-icons/bi";
 import { IoMdPerson } from "react-icons/io";
 import dayjs from "dayjs";
 import { clearInterval } from "timers";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 // Windows Navigation  Bar Fixed
 export default function Header({}: Props) {
   const [currentTime, setCurrentTime] = useState<null | dayjs.Dayjs>();
   const [href, setHref] = useState("");
   const [settingBarOpen, setSettingBarOpen] = useState(false);
   const pathname = usePathname();
+  const param = useSearchParams();
+  const drive = param.get("drive") || null;
   // Audio=======
   const audioRef = useRef<HTMLAudioElement>(null);
   const [vol, setVol] = useState(0.3);
@@ -114,13 +121,13 @@ export default function Header({}: Props) {
             </Link>
             <Link
               href={"/explorer?drive=c"}
-              className={`btn btn-nav ${href.includes("/explorer?drive=c") ? "active" : ""}`}
+              className={`btn btn-nav ${drive && drive === "c" ? "active" : ""}`}
             >
               <MdFolder />
             </Link>
             <Link
               href={"/explorer?drive=d"}
-              className={`btn btn-nav ${href.includes("/explorer?drive=d") ? "active" : ""}`}
+              className={`btn btn-nav ${drive && drive === "d" ? "active" : ""}`}
             >
               <AiFillPicture />
             </Link>
@@ -206,7 +213,7 @@ export default function Header({}: Props) {
         </Link>
         <Link
           href={"/explorer?drive=c"}
-          className={`btn btn-nav ${href.includes("/explorer?drive=c") ? "active" : ""}`}
+          className={`btn btn-nav ${drive && drive === "c" ? "active" : ""}`}
         >
           <MdFolder />
           <span>DRIVE</span>
@@ -217,7 +224,7 @@ export default function Header({}: Props) {
         </Link>
         <Link
           href={"/explorer?drive=d"}
-          className={`btn btn-nav ${href.includes("/explorer?drive=d") ? "active" : ""}`}
+          className={`btn btn-nav ${drive && drive === "d" ? "active" : ""}`}
         >
           <AiFillPicture />
           <span>GALLERY</span>

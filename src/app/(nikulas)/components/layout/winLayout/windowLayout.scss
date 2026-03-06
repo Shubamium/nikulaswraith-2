@@ -3,8 +3,6 @@
   position: relative;
   z-index: 10;
 
-  view-transition-name: window-transition;
-
   &.closing {
     .window {
       scale: 0;
@@ -142,11 +140,4 @@
       }
     }
   }
-}
-
-::view-transition-group(window-transition) {
-  animation-duration: 5.1s;
-}
-::view-transition-new(window-transition) {
-  rotate: 30deg;
 }
