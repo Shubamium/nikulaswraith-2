@@ -133,7 +133,7 @@ export default function Header({}: Props) {
             </Link>
           </div>
         </div>
-        <img src="/d/decal.svg" alt="" className="decal" />
+        {/* <img src="/d/decal.svg" alt="" className="decal" /> */}
         <div className="right">
           <a href="https://classic.nikulaswraith.com" className="btn btn-class">
             {" "}

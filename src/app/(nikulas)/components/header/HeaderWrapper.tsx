@@ -5,7 +5,7 @@ type Props = {};
 
 export default function HeaderWrapper({}: Props) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<></>}>
       <Header />
     </Suspense>
   );

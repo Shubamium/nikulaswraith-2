@@ -114,7 +114,7 @@ export default async function page({}: Props) {
                   <FaYoutubeSquare />
                 </a>
                 <a
-                  href="https://www.youtube.com/@nikulaswraithextra"
+                  href="https://bsky.app/profile/nikulaswraith.bsky.social"
                   target="_blank"
                   className="btn btn-ct"
                 >
