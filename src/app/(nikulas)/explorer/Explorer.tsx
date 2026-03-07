@@ -47,8 +47,7 @@ export default function Explorer({
         id="p_explorer"
         heading={{
           title: "File Explorer",
-          description:
-            "File explorer description here browse your file or something....",
+          description: "System Storage and User Files. ",
         }}
       >
         <div className="drive-list">

@@ -141,9 +141,9 @@ export default function Header({}: Props) {
           </a>
           <div className="time btn">
             <div className="side"></div>
-            <div className="time-part">
+            <Link href={"/clock"} className="time-part">
               <p>{currentTime?.format("hh:mm A")}</p>
-            </div>
+            </Link>
           </div>
           <Link href={"/clock"} className="btn btn-navside">
             <svg

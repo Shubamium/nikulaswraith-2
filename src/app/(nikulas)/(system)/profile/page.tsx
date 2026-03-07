@@ -23,6 +23,9 @@ export default async function page({}: Props) {
   const pd = await p.findGlobal({
     slug: "profile",
   });
+  const cd = await p.findGlobal({
+    slug: "contact",
+  });
 
   return (
     <WindowLayout
@@ -79,7 +82,7 @@ export default async function page({}: Props) {
 
               <div className="socials">
                 <a
-                  href="https://discord.com/invite/xPBEdgF5Zp"
+                  href={cd.discord ?? undefined}
                   target="_blank"
                   className="btn btn-ct"
                 >

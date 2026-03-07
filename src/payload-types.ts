@@ -99,6 +99,7 @@ export interface Config {
     Hardware: Hardware;
     SystemStorage: SystemStorage;
     MediaArchive: MediaArchive;
+    contact: Contact;
   };
   globalsSelect: {
     profile: ProfileSelect<false> | ProfileSelect<true>;
@@ -106,6 +107,7 @@ export interface Config {
     Hardware: HardwareSelect<false> | HardwareSelect<true>;
     SystemStorage: SystemStorageSelect<false> | SystemStorageSelect<true>;
     MediaArchive: MediaArchiveSelect<false> | MediaArchiveSelect<true>;
+    contact: ContactSelect<false> | ContactSelect<true>;
   };
   locale: null;
   user: User;
@@ -582,6 +584,17 @@ export interface MediaArchive {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: string;
+  description?: string | null;
+  discord?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profile_select".
  */
 export interface ProfileSelect<T extends boolean = true> {
@@ -644,6 +657,17 @@ export interface MediaArchiveSelect<T extends boolean = true> {
   size?: T;
   fillPercentage?: T;
   files?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_select".
+ */
+export interface ContactSelect<T extends boolean = true> {
+  description?: T;
+  discord?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

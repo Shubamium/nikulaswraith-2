@@ -16,6 +16,7 @@ import { Nodes } from "./collections/Nodes";
 import { SystemStorage } from "./collections/globals/SystemStorage";
 import { MediaArchive } from "./collections/globals/MediaArchive";
 import { Clock } from "./collections/globals/Clock";
+import { Contact } from "./collections/globals/Contact";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -28,7 +29,7 @@ export default buildConfig({
     },
   },
   collections: [Highlights, Artwork, Users, Media, Nodes],
-  globals: [Profile, Clock, Hardware, SystemStorage, MediaArchive],
+  globals: [Profile, Clock, Hardware, SystemStorage, MediaArchive, Contact],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
