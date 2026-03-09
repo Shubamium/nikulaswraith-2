@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   description: " ADd description here",
 };
 
+export const revalidate = 50;
+
 export default function RootLayout({
   children,
 }: Readonly<{

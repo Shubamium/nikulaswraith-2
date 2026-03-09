@@ -12,7 +12,7 @@ import "./header.scss";
 import Link from "next/link";
 import { MdFolder, MdPerson, MdPerson2, MdPerson3 } from "react-icons/md";
 import { AiFillPicture } from "react-icons/ai";
-import { BiSolidCog, BiVolumeFull } from "react-icons/bi";
+import { BiSolidCog, BiSpeaker, BiVolumeFull } from "react-icons/bi";
 import { IoMdPerson } from "react-icons/io";
 import dayjs from "dayjs";
 import { clearInterval } from "timers";
@@ -165,8 +165,11 @@ export default function Header({}: Props) {
               setSettingBarOpen(!settingBarOpen);
             }}
           >
-            <BiSolidCog />
+            <BiVolumeFull />
           </button>
+          <Link href={"/settings"} className="btn btn-navside">
+            <BiSolidCog />
+          </Link>
         </div>
 
         <img src="/d/glassypanel.png" alt="" className="decor_pane" />
